@@ -25,7 +25,7 @@ const UserSync = () => {
           .catch(console.error);
       }
     }
-  }, [jwt, user?.profileId, user?.isSynced, dispatch]);
+  }, [jwt, user?.profileId, user?.isSynced, dispatch, user]);
 
   return null;
 };

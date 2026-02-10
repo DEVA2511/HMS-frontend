@@ -91,7 +91,7 @@ const Profile = () => {
         })
         .catch(console.log);
     }
-  }, [user]);
+  }, [user, dispatch, form]);
   if (!doctor) {
     return <div className="p-10">Loading...</div>;
   }

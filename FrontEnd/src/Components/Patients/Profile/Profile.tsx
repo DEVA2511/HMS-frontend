@@ -112,7 +112,7 @@ const Profile = () => {
         })
         .catch(console.log);
     }
-  }, [user]);
+  }, [user, dispatch, form]);
 
   if (!patient) {
     return <div className="p-10">Loading...</div>;

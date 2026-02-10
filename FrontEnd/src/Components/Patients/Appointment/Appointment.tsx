@@ -45,17 +45,6 @@ import "primereact/resources/themes/lara-light-blue/theme.css";
 import { Toolbar } from "primereact/toolbar";
 import ApCard from "./ApCard";
 
-interface Customer {
-  id: number;
-  doctorName: string;
-  doctorId: number;
-  patientId: number;
-  appointmentDateTime: string | Date;
-  reason: string;
-  status: string;
-  notes: string;
-}
-
 export default function PatientAppointment() {
   const [opened, { open, close }] = useDisclosure(false);
   const [tab, setTab] = useState("Today");
