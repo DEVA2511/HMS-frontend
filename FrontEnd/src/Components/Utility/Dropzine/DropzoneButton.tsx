@@ -1,10 +1,5 @@
 import { useRef, useState } from "react";
-import {
-  IconCloudUpload,
-  IconDownload,
-  IconX,
-  IconPhoto,
-} from "@tabler/icons-react";
+import { IconDownload, IconX, IconPhoto } from "@tabler/icons-react";
 import { Button, Group, Text, useMantineTheme } from "@mantine/core";
 import { Dropzone, FileWithPath, IMAGE_MIME_TYPE } from "@mantine/dropzone";
 import classes from "./DropzoneButton.module.css";

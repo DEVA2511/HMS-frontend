@@ -6,7 +6,6 @@ import { FilterMatchMode } from "primereact/api";
 import { Toolbar } from "primereact/toolbar";
 import {
   ActionIcon,
-  Button,
   Card,
   Divider,
   Grid,
@@ -23,9 +22,9 @@ import {
   IconList,
 } from "@tabler/icons-react";
 
-import { useForm } from "@mantine/form";
+// import { useForm } from "@mantine/form";
 
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 import { getPrescriptionByPatientId } from "../../../Service/AppointmentService";
 import { formatDate } from "../../../Utility/FormateDate";
 import { useNavigate } from "react-router-dom";
@@ -38,7 +37,7 @@ const Prescription = ({ appointment }: any) => {
   const [medicineData, setMedicineData] = useState<any>([]);
   const [viewMode, setViewMode] = useState<"list" | "card">("list"); // Add view mode state
   const [selectedCustomers, setSelectedCustomers] = useState<any[]>([]);
-  const user = useSelector((state: any) => state.user);
+  // const user = useSelector((state: any) => state.user);
   const [filters, setFilters] = useState<DataTableFilterMeta>({
     global: { value: null, matchMode: FilterMatchMode.CONTAINS },
   });
@@ -55,19 +54,19 @@ const Prescription = ({ appointment }: any) => {
     setGlobalFilterValue(value);
   };
 
-  const form = useForm({
-    initialValues: {
-      doctorName: "",
-      doctorId: user.profileId,
-      patientId: "",
-      reason: "",
-      notes: "",
-    },
-    validate: {
-      patientId: (value: any) => (value ? null : "Patient is required"),
-      reason: (value: any) => (value ? null : "Reason is required"),
-    },
-  });
+  // const form = useForm({
+  //   initialValues: {
+  //     doctorName: "",
+  //     doctorId: user.profileId,
+  //     patientId: "",
+  //     reason: "",
+  //     notes: "",
+  //   },
+  //   validate: {
+  //     patientId: (value: any) => (value ? null : "Patient is required"),
+  //     reason: (value: any) => (value ? null : "Reason is required"),
+  //   },
+  // });
 
   useEffect(() => {
     if (!appointment?.patientId) return;

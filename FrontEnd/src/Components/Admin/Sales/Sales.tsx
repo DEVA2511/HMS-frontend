@@ -111,7 +111,6 @@ const Sales = () => {
       });
   };
   const handleFormSubmit = (values: any) => {
-    let update = false;
     let flag = false;
     values.saleItem.forEach((x: any) => {
       if (x.quantity > medicineMap[x.medicineId]?.quantity) {
@@ -227,45 +226,45 @@ const Sales = () => {
       {checked && <IconCheck style={{ marginInlineStart: "auto" }} />}
     </Group>
   );
-  const onViewSale = (rowData: any) => {
-    getSaleItems(rowData.id).then((res) => {
-      modals.open({
-        title: (
-          <span className="text-lg font-bold">
-            Sale Items (ID: {rowData.id})
-          </span>
-        ),
-        centered: true,
-        size: "lg",
-        children: (
-          <div className="grid gap-4">
-            <DataTable value={res} size="small" stripedRows>
-              <Column
-                header="Medicine"
-                body={(item) => medicineMap[item.medicineId]?.name || "Unknown"}
-              />
-              <Column field="batchNumber" header="Batch" />
-              <Column field="quantity" header="Qty" />
-              <Column
-                field="unitPrice"
-                header="Unit Price"
-                body={(item) => `₹${item.unitPrice.toFixed(2)}`}
-              />
-              <Column
-                header="Total"
-                body={(item) =>
-                  `₹${(item.unitPrice * item.quantity).toFixed(2)}`
-                }
-              />
-            </DataTable>
-            <div className="text-right font-bold text-lg mt-2">
-              Grand Total: ₹{rowData.totalAmount.toFixed(2)}
-            </div>
-          </div>
-        ),
-      });
-    });
-  };
+  // const onViewSale = (rowData: any) => {
+  //   getSaleItems(rowData.id).then((res) => {
+  //     modals.open({
+  //       title: (
+  //         <span className="text-lg font-bold">
+  //           Sale Items (ID: {rowData.id})
+  //         </span>
+  //       ),
+  //       centered: true,
+  //       size: "lg",
+  //       children: (
+  //         <div className="grid gap-4">
+  //           <DataTable value={res} size="small" stripedRows>
+  //             <Column
+  //               header="Medicine"
+  //               body={(item) => medicineMap[item.medicineId]?.name || "Unknown"}
+  //             />
+  //             <Column field="batchNumber" header="Batch" />
+  //             <Column field="quantity" header="Qty" />
+  //             <Column
+  //               field="unitPrice"
+  //               header="Unit Price"
+  //               body={(item) => `₹${item.unitPrice.toFixed(2)}`}
+  //             />
+  //             <Column
+  //               header="Total"
+  //               body={(item) =>
+  //                 `₹${(item.unitPrice * item.quantity).toFixed(2)}`
+  //               }
+  //             />
+  //           </DataTable>
+  //           <div className="text-right font-bold text-lg mt-2">
+  //             Grand Total: ₹{rowData.totalAmount.toFixed(2)}
+  //           </div>
+  //         </div>
+  //       ),
+  //     });
+  //   });
+  // };
 
   const actionBodyTemplate = (rowData: any) => {
     return (

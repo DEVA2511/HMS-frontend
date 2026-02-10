@@ -4,7 +4,6 @@ import {
   Fieldset,
   NumberInput,
   Select,
-  Text,
   TextInput,
 } from "@mantine/core";
 import { medicineCategories, medicineType } from "../../../Data/DropDownData";
@@ -26,7 +25,6 @@ import { FilterMatchMode } from "primereact/api";
 
 import {
   addMedicine,
-  deleteMedicine,
   getAllMedicines,
   updateMedicine,
 } from "../../../Service/MedicineService";

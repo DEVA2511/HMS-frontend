@@ -6,7 +6,6 @@ import {
   IconPackage,
   IconReceiptRupee,
   IconStethoscope,
-  IconVaccine,
 } from "@tabler/icons-react";
 import { useSelector } from "react-redux";
 

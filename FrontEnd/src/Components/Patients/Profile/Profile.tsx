@@ -2,7 +2,6 @@ import {
   Avatar,
   Button,
   Divider,
-  FileButton,
   Modal,
   NumberInput,
   Select,
@@ -11,7 +10,7 @@ import {
   TextInput,
 } from "@mantine/core";
 import { DateInput } from "@mantine/dates";
-import { IconEdit, IconUpload } from "@tabler/icons-react";
+import { IconEdit } from "@tabler/icons-react";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { bloodGroup, bloodGroups } from "../../../Data/DropDownData";
@@ -28,7 +27,7 @@ import {
 } from "../../../Utility/Notification";
 import { arrayToCSV } from "../../../Utility/OtherUtility";
 import { formatDate } from "../../../Utility/FormateDate";
-import { getMediaUrl, uploadMedia } from "../../../Service/MediaService";
+import { getMediaUrl } from "../../../Service/MediaService";
 import { DropzoneButton } from "../../Utility/Dropzine/DropzoneButton";
 
 const Profile = () => {

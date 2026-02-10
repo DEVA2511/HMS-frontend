@@ -37,7 +37,7 @@ import {
   SUCCESS_NOTIFICATION,
 } from "../../../Utility/Notification";
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+
 import { Column } from "primereact/column";
 import { DataTable, DataTableFilterMeta } from "primereact/datatable";
 import { useNavigate } from "react-router-dom";

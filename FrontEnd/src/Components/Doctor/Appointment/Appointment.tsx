@@ -148,18 +148,18 @@ export default function DoctorAppointment() {
     },
   });
 
-  const handleEdit = (rowData: any) => {
-    setEditingId(rowData.id);
-    form.setValues({
-      doctorId: rowData.doctorId,
-      patientId: "" + rowData.patientId,
-      appointmentDateTime: new Date(rowData.appointmentDateTime),
-      reason: rowData.reason,
-      notes: rowData.notes || "",
-    });
-    fetchData();
-    open();
-  };
+  // const handleEdit = (rowData: any) => {
+  //   setEditingId(rowData.id);
+  //   form.setValues({
+  //     doctorId: rowData.doctorId,
+  //     patientId: "" + rowData.patientId,
+  //     appointmentDateTime: new Date(rowData.appointmentDateTime),
+  //     reason: rowData.reason,
+  //     notes: rowData.notes || "",
+  //   });
+  //   fetchData();
+  //   open();
+  // };
 
   const handleDelete = (rowData: any) => {
     modals.openConfirmModal({
@@ -254,23 +254,23 @@ export default function DoctorAppointment() {
     return <span>{formatDateTime(rowData.appointmentDateTime)}</span>;
   };
 
-  const leftToolbarTemplate = () => {
-    return (
-      <div className="flex flex-wrap gap-2 justify-between items-center">
-        <Button
-          onClick={() => {
-            form.reset();
-            setEditingId(null);
-            open();
-          }}
-          leftSection={<IconPlus />}
-          variant="filled"
-        >
-          Schedule Appointment
-        </Button>
-      </div>
-    );
-  };
+  // const leftToolbarTemplate = () => {
+  //   return (
+  //     <div className="flex flex-wrap gap-2 justify-between items-center">
+  //       <Button
+  //         onClick={() => {
+  //           form.reset();
+  //           setEditingId(null);
+  //           open();
+  //         }}
+  //         leftSection={<IconPlus />}
+  //         variant="filled"
+  //       >
+  //         Schedule Appointment
+  //       </Button>
+  //     </div>
+  //   );
+  // };
 
   const rightToolbarTemplate = () => {
     return (
