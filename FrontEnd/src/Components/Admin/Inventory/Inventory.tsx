@@ -7,18 +7,10 @@ import {
   NumberInput,
   Select,
   SelectProps,
-  Text,
   TextInput,
 } from "@mantine/core";
 
-import { modals } from "@mantine/modals";
-import {
-  IconCheck,
-  IconEdit,
-  icons,
-  IconSearch,
-  IconTrash,
-} from "@tabler/icons-react";
+import { IconCheck, IconEdit, IconSearch } from "@tabler/icons-react";
 import { useForm } from "@mantine/form";
 
 import {
@@ -34,14 +26,11 @@ import { DataTable, DataTableFilterMeta } from "primereact/datatable";
 import { FilterMatchMode } from "primereact/api";
 import {
   addStock,
-  deleteStock,
   getAllStock,
   updateStock,
 } from "../../../Service/InventoryService";
-import { medicineCategories, medicineType } from "../../../Data/DropDownData";
 import { DateInput } from "@mantine/dates";
 import { getAllMedicines } from "../../../Service/MedicineService";
-import { log } from "console";
 
 type Inventory = {
   name: string;

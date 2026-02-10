@@ -1,13 +1,11 @@
 import {
   ActionIcon,
-  Badge,
   Button,
   Card,
   Divider,
   Fieldset,
   Grid,
   Group,
-  Loader,
   LoadingOverlay,
   Modal,
   NumberInput,
@@ -20,9 +18,7 @@ import {
 import { modals } from "@mantine/modals";
 import {
   IconCheck,
-  IconDashboard,
   IconEye,
-  IconHome,
   IconPlus,
   IconSearch,
   IconTrash,

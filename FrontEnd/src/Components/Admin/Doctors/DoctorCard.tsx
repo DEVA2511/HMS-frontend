@@ -1,9 +1,7 @@
 import { Avatar, Divider } from "@mantine/core";
-import { formatDate } from "../../../Utility/FormateDate";
+
 import {
   IconBriefcase,
-  IconGenderAgender,
-  IconGenderTransgender,
   IconMail,
   IconManFilled,
   IconPhone,
@@ -17,7 +15,6 @@ const DoctorCard = ({
   email,
   phoneNumber,
   gender,
-  dateOfBirth,
   specialization,
   address,
   department,
