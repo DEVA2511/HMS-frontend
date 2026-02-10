@@ -32,18 +32,6 @@ import {
 import { DateInput } from "@mantine/dates";
 import { getAllMedicines } from "../../../Service/MedicineService";
 
-type Inventory = {
-  name: string;
-  InventoryId?: number;
-  dosage: string;
-  frequency: string;
-  duration: number;
-  route: string;
-  type: string;
-  instructions: string;
-  prescriptionId?: number;
-};
-
 const Inventory = ({ appointment }: any) => {
   const [loading, setLoading] = useState(false);
   const [selectedCustomers, setSelectedCustomers] = useState<any[]>([]);

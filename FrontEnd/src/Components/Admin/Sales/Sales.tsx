@@ -54,22 +54,6 @@ import {
 } from "../../../Service/AppointmentService";
 import { freqMap } from "../../../Data/DropDownData";
 
-type Inventory = {
-  name: string;
-  InventoryId?: number;
-  dosage: string;
-  frequency: string;
-  duration: number;
-  // route: string;
-  type: string;
-  instructions: string;
-  prescriptionId?: number;
-};
-interface SaleItem {
-  quantity: 0;
-  medicineId: "";
-}
-
 const Sales = () => {
   const [loading, setLoading] = useState(false);
   const [selectedCustomers, setSelectedCustomers] = useState<any[]>([]);

@@ -8,7 +8,7 @@ import {
   TextInput,
 } from "@mantine/core";
 import { medicineCategories, medicineType } from "../../../Data/DropDownData";
-import { modals } from "@mantine/modals";
+
 import { IconEdit, IconSearch } from "@tabler/icons-react";
 import { useForm } from "@mantine/form";
 
@@ -30,18 +30,6 @@ import {
   getAllMedicines,
   updateMedicine,
 } from "../../../Service/MedicineService";
-
-type Medicine = {
-  name: string;
-  medicineId?: number;
-  dosage: string;
-  frequency: string;
-  duration: number;
-  route: string;
-  type: string;
-  instructions: string;
-  prescriptionId?: number;
-};
 
 const Medicine = ({ appointment }: any) => {
   const [loading, setLoading] = useState(false);
@@ -171,35 +159,6 @@ const Medicine = ({ appointment }: any) => {
   const cancel = () => {
     form.reset();
     setEdit(false);
-  };
-  const removeMedicine = (id: number) => {
-    if (!id) return;
-
-    modals.openConfirmModal({
-      title: (
-        <span className="text-xl font-semibold font-serif">
-          Confirm Deletion
-        </span>
-      ),
-      centered: true,
-      children: (
-        <Text size="sm">
-          You are about to delete this medicine. This action cannot be undone.
-        </Text>
-      ),
-      labels: { confirm: "Delete", cancel: "Cancel" },
-      confirmProps: { color: "red" },
-
-      onConfirm: async () => {
-        try {
-          await deleteMedicine(id);
-          SUCCESS_NOTIFICATION("Medicine deleted successfully");
-          fetchData(); // refresh table
-        } catch {
-          ERROR_NOTIFICATION("Failed to delete medicine");
-        }
-      },
-    });
   };
 
   return (
