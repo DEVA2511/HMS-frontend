@@ -1,5 +1,5 @@
 import { DonutChart } from "@mantine/charts";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { getReasonCountByPatientId } from "../../../Service/AppointmentService";
 

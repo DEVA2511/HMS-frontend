@@ -1,4 +1,3 @@
-import React from "react";
 import Welcome from "./Welcome";
 import Appointments from "./Appointment";
 import DiseasesChart from "./DiseasesChart";

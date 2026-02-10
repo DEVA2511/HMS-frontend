@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { AreaChart } from "@mantine/charts";
 import { ThemeIcon } from "@mantine/core";
 import {

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { FilterMatchMode, FilterOperator } from "primereact/api";
 import { DataTable, DataTableFilterMeta } from "primereact/datatable";
 import { Column } from "primereact/column";
@@ -17,7 +17,6 @@ import {
 import { Tag } from "primereact/tag";
 import {
   IconEye,
-  IconPlus,
   IconSearch,
   IconTrash,
   IconLayoutGrid,
@@ -48,7 +47,7 @@ import ApCard from "./ApCard";
 
 export default function DoctorAppointment() {
   const navigate = useNavigate();
-  const [opened, { open, close }] = useDisclosure(false);
+  const [opened, { close }] = useDisclosure(false);
   const [tab, setTab] = useState("Today");
   const [viewMode, setViewMode] = useState<"list" | "card">("list"); // Add view mode state
   const [patients, setPatients] = useState<any[]>([]);

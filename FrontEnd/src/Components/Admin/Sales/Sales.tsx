@@ -15,7 +15,7 @@ import {
   TextInput,
   Title,
 } from "@mantine/core";
-import { modals } from "@mantine/modals";
+
 import {
   IconCheck,
   IconEye,

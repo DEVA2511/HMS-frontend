@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { ScrollArea } from "@mantine/core";
 import { getAllPatients } from "../../../Service/PatientProfileService";
 

@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { FilterMatchMode, FilterOperator } from "primereact/api";
 import { DataTable, DataTableFilterMeta } from "primereact/datatable";
 import { Column, ColumnFilterElementTemplateOptions } from "primereact/column";
-import { Dropdown, DropdownChangeEvent } from "primereact/dropdown";
-import { InputNumber } from "primereact/inputnumber";
+
 import {
   ActionIcon,
   Button,
@@ -17,13 +16,7 @@ import {
 
 import { Tag } from "primereact/tag";
 import { TextInput } from "@mantine/core";
-import {
-  IconEdit,
-  IconPlus,
-  IconSearch,
-  IconTrack,
-  IconTrash,
-} from "@tabler/icons-react";
+import { IconEdit, IconPlus, IconSearch, IconTrash } from "@tabler/icons-react";
 import { useDisclosure } from "@mantine/hooks";
 import { getDoctorDropDown } from "../../Service/DoctorProfileService";
 import { DateTimePicker } from "@mantine/dates";
@@ -40,29 +33,20 @@ import {
   SUCCESS_NOTIFICATION,
 } from "../../Utility/Notification";
 import { formatDateTime } from "../../Utility/FormateDate";
-import { modals, openModal } from "@mantine/modals";
+import { modals } from "@mantine/modals";
 import "primereact/resources/themes/lara-light-blue/theme.css";
 import { Toolbar } from "primereact/toolbar";
-interface Country {
-  name: string;
-  code: string;
-}
-
-interface Representative {
-  name: string;
-  image: string;
-}
 
 interface Customer {
   id: number;
   name: string;
-  country: Country;
+
   company: string;
   date: string | Date;
   status: string;
   verified: boolean;
   activity: number;
-  representative: Representative;
+
   balance: number;
 }
 

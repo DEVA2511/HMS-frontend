@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { getAllPatients } from "../../../Service/PatientProfileService";
 import PatinetCard from "./PatinetCard";
 

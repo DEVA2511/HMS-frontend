@@ -1,6 +1,6 @@
 import { Column } from "primereact/column";
 import { DataTable, DataTableFilterMeta } from "primereact/datatable";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { FilterMatchMode } from "primereact/api";
 
 import { Toolbar } from "primereact/toolbar";

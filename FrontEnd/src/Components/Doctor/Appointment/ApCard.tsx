@@ -1,4 +1,3 @@
-import React from "react";
 import { Card, Badge, ActionIcon, Text, Group, Stack } from "@mantine/core";
 import {
   IconEye,

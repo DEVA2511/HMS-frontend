@@ -1,4 +1,3 @@
-import React from "react";
 import { Avatar, Divider } from "@mantine/core";
 import { bloodGroupMap } from "../../../Data/DropDownData";
 import { formatDate } from "../../../Utility/FormateDate";

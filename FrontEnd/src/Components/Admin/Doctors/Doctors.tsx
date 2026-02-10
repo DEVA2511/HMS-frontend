@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { getAllDoctor } from "../../../Service/DoctorProfileService";
 import DoctorCard from "./DoctorCard";
 
