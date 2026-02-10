@@ -1,0 +1,62 @@
+# Daily Progress & Project Summary
+
+## Daily Updates
+
+### 24-12-2025
+- **Activity**: Created the Login Page and Register Page.
+
+---
+
+## Project Status Document
+
+### Project Overview
+- **Name**: HMS (Hospital Management System) FrontEnd
+- **Type**: Single Page Application (SPA)
+- **Framework**: React 19 + TypeScript
+
+### Technology Stack
+- **Core**: React 19, TypeScript
+- **Build Tool**: React Scripts (Create React App)
+- **UI Framework**: Mantine UI (`@mantine/core`, `@mantine/hooks`, etc.)
+- **Icons**: Tabler Icons (`@tabler/icons-react`)
+- **Routing**: React Router DOM v7
+- **Date Handling**: Day.js
+- **Styling**: CSS Modules / Global CSS + Mantine Theme
+
+### Project Structure
+The project follows a standard React application structure:
+
+- **src/Components**: Contains reusable UI components.
+  - `Header`: Navigation/Top bar component.
+  - `SideBar`: Sidebar navigation component.
+  - `Random.tsx`: A placeholder component currently used for implementation-pending routes.
+- **src/Layout**: Layout wrappers.
+  - `AdminDashBoard`: Main layout for the authenticated area (likely includes Header and Sidebar).
+- **src/Pages**: Top-level page components.
+  - `LoginPage.tsx`: User login interface.
+  - `RegisterPage.tsx`: User registration interface.
+- **src/Routes**: Routing configuration.
+  - `AppRoutes.tsx`: Defines the application's URL structure.
+
+### Implemented Features
+1. **Authentication**
+   - **Login Page**: Accessible at `/login`.
+   - **Register Page**: Accessible at `/register`.
+2. **Admin Dashboard Setup**
+   - **Main Layout**: The `AdminDashBoard` layout acts as the shell for the application at `/`.
+   - **Navigation Structure**: The following routes have been defined but currently point to a placeholder (`Random`) component:
+     - `/dashboard`
+     - `/pharmacy`
+     - `/patients`
+     - `/doctors`
+     - `/departments`
+     - `/appointments`
+
+### Theme Configuration
+- Custom theme initialized in `App.tsx` using `MantineProvider`.
+- **Colors**:
+  - Primary Palette: Teal/Turquoise shades (`#f1fcfa` to `#072c2b`).
+  - Neutral Palette: Grays (`#f6f6f6` to `#000000`).
+- **Typography**:
+  - Body: 'Poppins, sans-serif'
+  - Headings: 'Merriweather, serif'
