@@ -235,11 +235,12 @@ const ApReport = ({ appointment }: any) => {
       )
       .finally(() => setLoading(false));
   };
-  const canAddReport = () => {
+  const canAddReport = useCallback(() => {
     return (
       appointment?.status === "SCHEDULED" || appointment?.status === "CANCELLED"
     );
-  };
+  }, [appointment?.status]);
+
   const actionBodyTemplate = (rowData: any) => {
     return (
       <div className="flex gap-2">
@@ -359,7 +360,6 @@ const ApReport = ({ appointment }: any) => {
       </div>
     );
   };
-
   const fetchData = useCallback(async () => {
     if (!appointment?.patientId) return;
 
@@ -381,11 +381,7 @@ const ApReport = ({ appointment }: any) => {
       );
       setAllowAdd(false);
     }
-  }, [appointment?.patientId, appointment?.id]);
-
-  useEffect(() => {
-    fetchData();
-  }, [fetchData]);
+  }, [appointment?.patientId, appointment?.id, canAddReport]);
 
   return (
     <div>
