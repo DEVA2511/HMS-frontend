@@ -185,7 +185,7 @@ const Sales = () => {
         })
         .finally(() => setLoading(false));
     },
-    [form, calculateQuantity]
+    [form]
   );
 
   const handleSpotLight = () => {

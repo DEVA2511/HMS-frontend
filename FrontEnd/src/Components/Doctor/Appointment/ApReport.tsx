@@ -381,7 +381,7 @@ const ApReport = ({ appointment }: any) => {
       );
       setAllowAdd(false);
     }
-  }, [appointment?.patientId, appointment?.id, canAddReport]);
+  }, [appointment?.patientId, appointment?.id]);
 
   return (
     <div>
