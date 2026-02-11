@@ -36,7 +36,7 @@ import {
   ERROR_NOTIFICATION,
   SUCCESS_NOTIFICATION,
 } from "../../../Utility/Notification";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 import { Column } from "primereact/column";
 import { DataTable, DataTableFilterMeta } from "primereact/datatable";
@@ -359,11 +359,8 @@ const ApReport = ({ appointment }: any) => {
       </div>
     );
   };
-  useEffect(() => {
-    fetchData();
-  }, [appointment?.patientId, appointment.id]);
 
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     if (!appointment?.patientId) return;
 
     try {
@@ -377,8 +374,6 @@ const ApReport = ({ appointment }: any) => {
 
     try {
       const exists = await isReportExists(appointment.id);
-
-      // If report exists, we should NOT allow adding another one (prevents APPOINTMENT_RECORD_ALREADY_EXISTS error)
       setAllowAdd(!exists && canAddReport());
     } catch (err: any) {
       ERROR_NOTIFICATION(
@@ -386,7 +381,12 @@ const ApReport = ({ appointment }: any) => {
       );
       setAllowAdd(false);
     }
-  };
+  }, [appointment?.patientId, appointment?.id]);
+
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
+
   return (
     <div>
       <div className="card">

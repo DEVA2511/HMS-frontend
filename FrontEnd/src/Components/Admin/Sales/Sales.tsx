@@ -29,7 +29,7 @@ import {
   ERROR_NOTIFICATION,
   SUCCESS_NOTIFICATION,
 } from "../../../Utility/Notification";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 import { Column } from "primereact/column";
 
@@ -156,36 +156,37 @@ const Sales = () => {
   };
 
   // spotlight
-
-  const handleImportPrescription = (prescription: any) => {
-    console.table(prescription);
-    setLoading(true);
-    getMedicinesByPrescriptionId(prescription.id)
-      .then((res: any) => {
-        setSaleItem(res);
-        form.setValues({
-          ...form.values,
-          buyerName: prescription.patientName || "",
-          buyerContact: prescription.patientPhone || "",
-          saleItem: res.map((x: any) => ({
-            medicineId: String(x.medicineId),
-            quantity: calculateQuantity(x.frequency, x.duration),
-          })),
-        });
-        SUCCESS_NOTIFICATION("Prescription imported successfully");
-        setLoading(false);
-      })
-      .catch((err: any) => {
-        ERROR_NOTIFICATION(
-          err.response?.data?.message || "Failed to import prescription"
-        );
-        setLoading(false);
-      });
-  };
-  const calculateQuantity = (freq: string, duration: number) => {
+  const calculateQuantity = useCallback((freq: string, duration: number) => {
     const freqValue = freqMap[freq] || 0;
     return Math.ceil(freqValue * duration);
-  };
+  }, []);
+
+  const handleImportPrescription = useCallback(
+    (prescription: any) => {
+      setLoading(true);
+      getMedicinesByPrescriptionId(prescription.id)
+        .then((res: any) => {
+          setSaleItem(res);
+          form.setValues({
+            ...form.values,
+            buyerName: prescription.patientName || "",
+            buyerContact: prescription.patientPhone || "",
+            saleItem: res.map((x: any) => ({
+              medicineId: String(x.medicineId),
+              quantity: calculateQuantity(x.frequency, x.duration),
+            })),
+          });
+          SUCCESS_NOTIFICATION("Prescription imported successfully");
+        })
+        .catch((err: any) => {
+          ERROR_NOTIFICATION(
+            err.response?.data?.message || "Failed to import prescription"
+          );
+        })
+        .finally(() => setLoading(false));
+    },
+    [form]
+  );
 
   const handleSpotLight = () => {
     spotlight.open();
@@ -275,6 +276,22 @@ const Sales = () => {
       </div>
     );
   };
+
+  const fetchData = useCallback(() => {
+    setLoading(true);
+    getAllsales()
+      .then((res) => {
+        setData([...res]);
+        console.log("res ", res);
+      })
+      .catch((err) => {
+        ERROR_NOTIFICATION(
+          err.response?.data?.message || "Error fetching Sales"
+        );
+      })
+      .finally(() => setLoading(false));
+  }, []);
+
   useEffect(() => {
     getAllMedicines()
       .then((res) => {
@@ -306,22 +323,7 @@ const Sales = () => {
         console.log("error ", error);
       });
     fetchData();
-  }, []);
-
-  const fetchData = async () => {
-    setLoading(true);
-    getAllsales()
-      .then((res) => {
-        setData([...res]);
-        console.log("res ", res);
-      })
-      .catch((err) => {
-        ERROR_NOTIFICATION(
-          err.response?.data?.message || "Error fetching Sales"
-        );
-      })
-      .finally(() => setLoading(false));
-  };
+  }, [fetchData, handleImportPrescription]);
 
   const cancel = () => {
     form.reset();

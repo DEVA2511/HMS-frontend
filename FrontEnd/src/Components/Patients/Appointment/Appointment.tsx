@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { FilterMatchMode, FilterOperator } from "primereact/api";
 import { DataTable, DataTableFilterMeta } from "primereact/datatable";
 import { Column } from "primereact/column";
@@ -89,6 +89,22 @@ export default function PatientAppointment() {
     }
   };
 
+  const fetchData = useCallback(async () => {
+    if (!user.profileId) return;
+    setLoading(true);
+    getAppointmetsByPatient(user.profileId)
+      .then((response: any) => {
+        setAppointments(response || []);
+      })
+      .catch((error: any) => {
+        console.error(error);
+        ERROR_NOTIFICATION("Appointments Fetched Failed");
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  }, [user.profileId]);
+
   useEffect(() => {
     fetchData();
     getDoctorDropDown()
@@ -103,23 +119,7 @@ export default function PatientAppointment() {
       .catch((error: any) => {
         console.error(error);
       });
-  }, []);
-
-  const fetchData = () => {
-    if (!user.profileId) return;
-    setLoading(true);
-    getAppointmetsByPatient(user.profileId)
-      .then((response: any) => {
-        setAppointments(response || []);
-      })
-      .catch((error: any) => {
-        console.error(error);
-        ERROR_NOTIFICATION("Appointments Fetched Failed");
-      })
-      .finally(() => {
-        setLoading(false);
-      });
-  };
+  }, [fetchData]);
 
   const onGlobalFilterChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
